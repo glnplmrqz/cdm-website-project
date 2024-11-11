@@ -36,13 +36,8 @@ body {
 }
 
 .logo-icon {
-  width: 55px;
-  margin-right: 0.5rem;
-}
-
-.logo-text {
-  font-size: 1.2rem;
-  font-weight: bold;
+  width: 5rem;
+  margin: 0 0.5rem;
 }
 
 .nav-links {
