@@ -17,6 +17,7 @@ navTags.forEach(link => {
     });
 });
 
+
 // For Profile Slider
 document.addEventListener('DOMContentLoaded', function() {
     const track = document.querySelector('.profiles-track');
@@ -43,31 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSliderPosition();
     });
     
-    // Touch functionality for mobile
-    let startX = 0;
-    let endX = 0;
-
-    track.addEventListener('touchstart', (event) => {
-        startX = event.touches[0].clientX;
-    });
-
-    track.addEventListener('touchmove', (event) => {
-        endX = event.touches[0].clientX;
-    });
-
-    track.addEventListener('touchend', () => {
-        if (startX > endX + 50) {
-            // Swipe left
-            currentIndex = Math.min(currentIndex + 1, maxIndex);
-        } else if (startX + 50 < endX) {
-            // Swipe right
-            currentIndex = Math.max(currentIndex - 1, 0);
-        }
-        updateSliderPosition();
-    });
-
     // Pause auto-slide on hover
     track.addEventListener('mouseenter', () => {
         clearInterval(autoSlideInterval);
     });
+    
 });
