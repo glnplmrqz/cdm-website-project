@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.slider-button.next');
     
     let currentIndex = 0;
-    const cardWidth = 275.3; // card width + gap
+    const cardWidth = 285; // card width + gap
     const visibleCards = Math.floor(track.clientWidth / cardWidth);
     const maxIndex = cards.length - visibleCards;
     
