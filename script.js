@@ -30,50 +30,99 @@ document.addEventListener('DOMContentLoaded', function() {
     let isDragging = false;
     
     function getCardWidth() {
-        return cards[0].offsetWidth + parseInt(window.getComputedStyle(cards[0]).marginRight);
+        const card = cards[0];
+        const style = window.getComputedStyle(card);
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        return card.offsetWidth + gap;
     }
     
     function getVisibleCards() {
-        return Math.floor(track.clientWidth / getCardWidth());
+        const containerWidth = track.parentElement.offsetWidth;
+        const cardWidth = getCardWidth();
+        return Math.floor(containerWidth / cardWidth);
     }
     
     function getMaxIndex() {
-        return Math.max(0, cards.length - getVisibleCards());
+        const visibleCards = getVisibleCards();
+        return Math.max(0, cards.length - visibleCards);
     }
     
     function updateSliderPosition() {
         const cardWidth = getCardWidth();
-        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
-    
-    function showFullCard(index) {
-        cards.forEach((card, i) => {
-            if (i === index) {
-                card.style.transform = 'scale(1.05)';
-                card.style.zIndex = '1';
-            } else {
-                card.style.transform = 'scale(1)';
-                card.style.zIndex = '0';
-            }
-        });
+        const maxIndex = getMaxIndex();
+        const visibleCards = getVisibleCards();
+        
+        // Calculate total width needed
+        const totalWidth = cardWidth * cards.length;
+        const containerWidth = track.parentElement.offsetWidth;
+        
+        // Calculate the actual translation
+        let offset = currentIndex * cardWidth;
+        
+        // Adjust offset to prevent extra space at the end
+        if (currentIndex >= maxIndex) {
+            offset = totalWidth - containerWidth;
+        }
+        
+        track.style.transform = `translateX(-${offset}px)`;
     }
     
     function handleGesture() {
         currentIndex = Math.max(0, Math.min(currentIndex, getMaxIndex()));
         updateSliderPosition();
-        showFullCard(currentIndex);
         updateButtonStates();
     }
     
     function updateButtonStates() {
+        const maxIndex = getMaxIndex();
         prevButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === getMaxIndex();
+        nextButton.disabled = currentIndex >= maxIndex;
         prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
         nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
+        prevButton.style.pointerEvents = prevButton.disabled ? 'none' : 'auto';
+        nextButton.style.pointerEvents = nextButton.disabled ? 'none' : 'auto';
+    }
+    
+    function handleTouchStart(e) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = 'none';
+    }
+    
+    function handleTouchMove(e) {
+        if (!isDragging) return;
+        
+        const currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+        
+        if (Math.abs(diff) > 5) {
+            e.preventDefault();
+        }
+    }
+    
+    function handleTouchEnd(e) {
+        if (!isDragging) return;
+        
+        const currentX = e.changedTouches[0].clientX;
+        const diff = startX - currentX;
+        const threshold = getCardWidth() / 3;
+        
+        track.style.transition = 'transform 0.3s ease';
+        
+        if (Math.abs(diff) > threshold) {
+            if (diff > 0 && currentIndex < getMaxIndex()) {
+                currentIndex++;
+            } else if (diff < 0 && currentIndex > 0) {
+                currentIndex--;
+            }
+        }
+        
+        handleGesture();
+        isDragging = false;
     }
     
     prevButton.addEventListener('click', () => {
-        currentIndex = Math.max(currentIndex - 1, 0);
+        currentIndex = Math.max(0, currentIndex - 1);
         handleGesture();
     });
     
@@ -82,43 +131,19 @@ document.addEventListener('DOMContentLoaded', function() {
         handleGesture();
     });
     
-    // Touch events for mobile swiping
-    track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-    });
+    track.addEventListener('touchstart', handleTouchStart, { passive: false });
+    track.addEventListener('touchmove', handleTouchMove, { passive: false });
+    track.addEventListener('touchend', handleTouchEnd);
     
-    track.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        const currentX = e.touches[0].clientX;
-        const diff = startX - currentX;
-        const sensitivity = 50; // Adjust this value to change swipe sensitivity
-        
-        if (Math.abs(diff) > sensitivity) {
-            if (diff > 0 && currentIndex < getMaxIndex()) {
-                currentIndex++;
-            } else if (diff < 0 && currentIndex > 0) {
-                currentIndex--;
-            }
-            handleGesture();
-            isDragging = false;
-        }
-    });
-    
-    track.addEventListener('touchend', () => {
-        isDragging = false;
-    });
-    
-    // Resize event to handle responsiveness
-    let resizeTimer;
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            currentIndex = Math.min(currentIndex, getMaxIndex());
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const maxIndex = getMaxIndex();
+            currentIndex = Math.min(currentIndex, maxIndex);
             handleGesture();
         }, 250);
     });
     
-    // Initial setup
     handleGesture();
 });
