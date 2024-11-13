@@ -26,27 +26,99 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.slider-button.next');
     
     let currentIndex = 0;
-    const cardWidth = 275.3; // card width + gap
-    const visibleCards = Math.floor(track.clientWidth / cardWidth);
-    const maxIndex = cards.length - visibleCards;
+    let startX;
+    let isDragging = false;
+    
+    function getCardWidth() {
+        return cards[0].offsetWidth + parseInt(window.getComputedStyle(cards[0]).marginRight);
+    }
+    
+    function getVisibleCards() {
+        return Math.floor(track.clientWidth / getCardWidth());
+    }
+    
+    function getMaxIndex() {
+        return Math.max(0, cards.length - getVisibleCards());
+    }
     
     function updateSliderPosition() {
+        const cardWidth = getCardWidth();
         track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+    
+    function showFullCard(index) {
+        cards.forEach((card, i) => {
+            if (i === index) {
+                card.style.transform = 'scale(1.05)';
+                card.style.zIndex = '1';
+            } else {
+                card.style.transform = 'scale(1)';
+                card.style.zIndex = '0';
+            }
+        });
+    }
+    
+    function handleGesture() {
+        currentIndex = Math.max(0, Math.min(currentIndex, getMaxIndex()));
+        updateSliderPosition();
+        showFullCard(currentIndex);
+        updateButtonStates();
+    }
+    
+    function updateButtonStates() {
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex === getMaxIndex();
+        prevButton.style.opacity = prevButton.disabled ? '0.5' : '1';
+        nextButton.style.opacity = nextButton.disabled ? '0.5' : '1';
     }
     
     prevButton.addEventListener('click', () => {
         currentIndex = Math.max(currentIndex - 1, 0);
-        updateSliderPosition();
+        handleGesture();
     });
     
     nextButton.addEventListener('click', () => {
-        currentIndex = Math.min(currentIndex + 1, maxIndex);
-        updateSliderPosition();
+        currentIndex = Math.min(currentIndex + 1, getMaxIndex());
+        handleGesture();
     });
     
-    // Pause auto-slide on hover
-    track.addEventListener('mouseenter', () => {
-        clearInterval(autoSlideInterval);
+    // Touch events for mobile swiping
+    track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
     });
     
+    track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        const currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+        const sensitivity = 50; // Adjust this value to change swipe sensitivity
+        
+        if (Math.abs(diff) > sensitivity) {
+            if (diff > 0 && currentIndex < getMaxIndex()) {
+                currentIndex++;
+            } else if (diff < 0 && currentIndex > 0) {
+                currentIndex--;
+            }
+            handleGesture();
+            isDragging = false;
+        }
+    });
+    
+    track.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+    
+    // Resize event to handle responsiveness
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            currentIndex = Math.min(currentIndex, getMaxIndex());
+            handleGesture();
+        }, 250);
+    });
+    
+    // Initial setup
+    handleGesture();
 });
