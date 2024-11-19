@@ -192,6 +192,46 @@ body {
   font-size: 17px;
 }
 
+/* School Map Section */
+#maps {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f5f5f5;
+  margin: 0 auto;
+}
+
+#maps h2 {
+  color: #005a32;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+#maps h2 svg {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+#maps p {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.map-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: blue;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.map-btn:hover {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+}
+
 .programs {
   padding: 4rem 1rem;
   background-color: #f5f5f5;
