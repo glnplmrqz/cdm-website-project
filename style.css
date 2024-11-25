@@ -176,13 +176,14 @@ body {
   flex: 1;
   padding: 2rem;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .mission-vision h2 {
   color: #005a32;
   margin-bottom: 1rem;
+  text-align: center;
   font-size: 2rem;
 }
 
