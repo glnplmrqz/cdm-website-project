@@ -251,13 +251,13 @@ body {
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .program-card {
   background: #fff;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
