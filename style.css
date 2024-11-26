@@ -321,10 +321,13 @@ body {
 }
 
 .enrollment p {
-  margin-left: 0.5rem;
+  max-width: 800px;
+  line-height: 1.6;
   margin-bottom: 2rem;
   font-size: 1.1rem;
   text-align: left;
+  color: #333;
+  padding: 0 15px;
 }
 
 .enrollment-btn {
