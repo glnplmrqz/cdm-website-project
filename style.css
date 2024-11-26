@@ -321,9 +321,9 @@ body {
 }
 
 .enrollment p {
-  margin-left: 17px;
+  margin-left: 0.5rem;
   margin-bottom: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-align: left;
 }
 
@@ -384,7 +384,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
-  font-size: 1.3em;
+  font-size: 1.1rem;
   text-align: left;
   color: #333;
   padding: 0 15px;
