@@ -484,7 +484,6 @@ body {
 }
 
 /* Loading Animations */
-
 @keyframes slideIn {
   from {
     opacity: 0;
