@@ -99,22 +99,18 @@ body {
 }
 
 /* Buttons */
-.enroll-btn,
-.hero-btn,
-.enrollment-btn {
+.enroll-btn {
   background-color: blue;
   color: #f3f4f6;
   padding: 0.5rem 1.5rem;
   border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.5s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease-in-out;
 }
 
-.enroll-btn:hover,
-.hero-btn:hover,
-.enrollment-btn:hover {
-  background: linear-gradient(to right, #007bff, #00c6ff);
+.enroll-btn:hover {
+  background-color: rgb(15, 15, 224);
 }
 
 /* Hero section */
@@ -154,7 +150,11 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.hero-btn:hover {
+  background-color: rgb(15, 15, 224);
 }
 
 /* Mission and Vision section */
@@ -231,11 +231,11 @@ body {
   color: white;
   text-decoration: none;
   border-radius: 10px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .map-btn:hover {
-  background: linear-gradient(to right, #007bff, #00c6ff);
+  background-color: rgb(15, 15, 224);
 }
 
 .programs {
@@ -334,11 +334,11 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .enrollment-btn:hover {
-  background: linear-gradient(to right, #007bff, #00c6ff);
+  background-color: rgb(15, 15, 224);
 }
 
 /* Footer */
