@@ -38,11 +38,13 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="password"],
+.birthday-input,
 select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 16px;
     box-sizing: border-box;
 }
 
@@ -58,7 +60,7 @@ input[type="radio"] {
 .submit-btn {
     display: block;
     text-align: center;
-    width: 200px;
+    width: 100%;
     margin: 0 auto;
     padding: 10px;
     background-color: blue;
