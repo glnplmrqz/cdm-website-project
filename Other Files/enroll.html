@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="icon" type="image/x-icon" href="../Images/CDM Logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="../style.css"/>
     <link rel="stylesheet" href="enroll.css"/>
     <title>Student's Enrollment</title>
 </head>
@@ -26,7 +25,7 @@
 
     <div class="form-container">
         <h1>Student Enrollment Form</h1>
-        <form onsubmit="handleSubmit(event)">
+        <form>
             <div class="form-group">
                 <label for="last-name">Last Name:</label>
                 <input type="text" id="last-name" name="last-name" required>
@@ -39,7 +38,7 @@
             
             <div class="form-group">
                 <label for="middle-name">Middle Name:</label>
-                <input type="text" id="middle-initial" name="middle-name">
+                <input type="text" id="middle-name" name="middle-name">
             </div>
             
             <div class="form-group">
@@ -104,7 +103,7 @@
                     <option value="btled-ict">Bachelor of Technology and Livelihood Education Major in ICT</option>
                     <option value="bsit">Bachelor of Science in Information Technology</option>
                     <option value="bsed">Bachelor of Science in Computer Engineering</option>
-                    <option value="bsba">Bachelor of Science in Entrepreneurship</option>
+                    <option value="bse">Bachelor of Science in Entrepreneurship</option>
                     <option value="bsba">Bachelor of Science in Business Administration</option>
                 </select>
             </div>
@@ -113,5 +112,4 @@
     </div>
 </body>
 <script src="../script.js"></script>
-<script src="enroll.js"></script>
 </html>
