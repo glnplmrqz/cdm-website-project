@@ -81,6 +81,7 @@ h1 {
     text-align: center;
     font-size: 28px;
     color: #005a32;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -178,20 +179,20 @@ input[type="radio"] {
     }
 
     .submit-btn {
-        width: 100%; /* Full-width button on smaller screens */
+        width: 100%; 
     }
 }
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 24px; /* Smaller heading on very small screens */
+        font-size: 24px; 
     }
 
     .form-group {
-        margin-bottom: 10px; /* Smaller margin for smaller screens */
+        margin-bottom: 10px; 
     }
 
     .submit-btn {
-        font-size: 16px; /* Slightly smaller font size */
+        font-size: 16px; 
     }
 }
