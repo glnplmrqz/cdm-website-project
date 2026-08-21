@@ -1,0 +1,474 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background: linear-gradient(115deg, #fafafa, #faf7f7, #f0f0f0);
+}
+
+.header {
+  background-color: #005a32;
+  padding: 1rem 2rem;
+  color: #f3f4f6;
+  position: relative;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f3f4f6;
+  z-index: 100;
+}
+
+.logo-icon {
+  width: 5rem;
+  margin: 0 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #f3f4f6;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  transition: color 0.3s;
+}
+
+.nav-tag:hover {
+  color: yellow;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #f3f4f6;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  z-index: 100;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f3f4f6;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7)),
+    url("../images/school\ background.jpg") no-repeat center center/cover;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.hero h1 em {
+  font-size: 5.5rem;
+  font-family: "DM Serif Display", serif;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #f5c84b;
+}
+
+.hero p {
+  font-size: 1.35rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 1rem;
+  background-color: blue;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  width: 10em;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.hero-btn:hover {
+  background-color: rgb(2, 2, 139);
+}
+
+/* Mission and Vision section */
+.mission-vision {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.mission-box,
+.vision-box {
+  flex: 1;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  height: fit-content;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mission-box:hover, .vision-box:hover {
+  transform: translateY(-5px)
+}
+
+.mission-vision h2 {
+  color: #005a32;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.mission-vision p {
+  color: #333;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* School Map Section */
+#maps {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  margin: 0 auto;
+}
+
+#maps h2 {
+  color: #005a32;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.map-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.map-container:hover {
+  transform: translateY(-5px);
+}
+
+#maps p {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.map-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: blue;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.map-btn:hover {
+  background-color: rgb(2, 2, 139);
+}
+
+.programs {
+  padding: 2.5rem 1rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: #005a32;
+  margin-bottom: 1rem;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.program-card {
+  background: #fff;
+  padding: 2rem;
+  height: fit-content;
+  align-self: start;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.program-card img {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: auto;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+}
+
+.program-card h3 {
+  color: #005a32;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.program-card ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.program-card li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.program-card li::before {
+  content: "•";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #333;
+}
+
+/* Enrollment section */
+.enrollment {
+  background-color: #f3f4f6;
+  color: #005a32;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.enrollment-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.enrollment h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.enrollment p {
+  max-width: 800px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  text-align: left;
+  color: #333;
+  padding: 0 15px;
+}
+
+.enrollment-btn {
+  display: inline-block;
+  background-color: blue;
+  color: #f3f4f6;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.enrollment-btn:hover {
+  background-color: rgb(15, 15, 224);
+}
+
+/* Footer */
+.footer {
+  background-color: #005a32;
+  padding: 1.5rem 1rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-credit {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 0.95rem;
+}
+
+.footer-credit span {
+  color: yellow;
+  font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.social-links a {
+  align-items: center;
+  border: 1px solid rgb(255 255 255 / 0.45);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  height: 2.25rem;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  width: 2.25rem;
+}
+
+.social-links a:hover {
+  color: #333;
+  background-color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo-icon {
+    width: 4rem;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: #005a32;
+    z-index: 90;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    min-height: 520px;
+    height: 75vh;
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 em {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-btn {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .mission-vision,
+  #maps,
+  .programs {
+    padding: 2.5rem 1rem;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mission-box,
+  .vision-box,
+  .program-card {
+    padding: 1.25rem;
+  }
+
+  .mission-vision h2,
+  #maps h2,
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .programs-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .program-card h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .program-card li {
+    font-size: 0.85rem;
+  }
+
+  .program-card img {
+    width: 100px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}

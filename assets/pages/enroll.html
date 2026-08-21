@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="icon" type="image/x-icon" href="../Images/CDM Logo.png"/>
+    <link rel="icon" type="image/x-icon" href="../images/CDM Logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="enroll.css"/>
+    <link rel="stylesheet" href="../css/enroll.css"/>
     <title>Student's Enrollment</title>
 </head>
 <body>
     <header class="header">
         <div class="nav-container">
-            <a href="landing page.html" class="logo-link">
+            <a href="landing-page.html#home" class="logo-link">
                 <img src="../Images/CDM Logo.png" alt="CDM Logo" class="logo-icon">
             </a>
             <button class="hamburger" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <nav class="nav-links">
-                <a href="landing page.html" class="nav-tag">Back to Landing Page</a>
+                <a href="landing-page.html#mission-vision" class="nav-tag">Mission & Vision</a>
+                <a href="landing-page.html#maps" class="nav-tag">School Map</a>
+                <a href="landing-page.html#programs" class="nav-tag">Programs</a>
             </nav>
         </div>
     </header>
@@ -94,23 +96,25 @@
             </div>
             
             <div class="form-group">
+                <label for="institute">Select Institute:</label>
+                <select id="institute" name="institute" required>
+                    <option value="">Choose an Institute</option>
+                    <option value="ite">Institute of Teacher's Education</option>
+                    <option value="ics">Institute of Computer Studies</option>
+                    <option value="ibe">Institute of Business and Entrepreneurship</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="course">Select Course:</label>
-                <select id="course" name="course" required>
-                    <option value="">Choose a Course</option>
-                    <option value="beed-gen">Bachelor of Elementary Education Major in General Education</option>
-                    <option value="beced">Bachelor of Early Childhood Education</option>
-                    <option value="bsed-sci">Bachelor of Secondary Education Major in Science</option>
-                    <option value="btled-ict">Bachelor of Technology and Livelihood Education Major in ICT</option>
-                    <option value="bsit">Bachelor of Science in Information Technology</option>
-                    <option value="bsed">Bachelor of Science in Computer Engineering</option>
-                    <option value="bse">Bachelor of Science in Entrepreneurship</option>
-                    <option value="bsba">Bachelor of Science in Business Administration</option>
+                <select id="course" name="course" required disabled>
+                    <option value="">Choose an institute first</option>
                 </select>
             </div>
             <button type="submit" class="submit-btn">Submit Enrollment</button>
         </form>
     </div>
 </body>
-<script src="../script.js"></script>
-<script src="enroll.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/enroll.js"></script>
 </html>
