@@ -1,3 +1,3 @@
 setTimeout(function() {
-  window.location.href = "/cdm-website-project/pages/landing-page.html";
-}, 2000);
+  window.location.href = "./pages/landing-page.html";
+  }, 3000);
