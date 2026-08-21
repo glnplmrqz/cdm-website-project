@@ -1,3 +1,3 @@
 setTimeout(function() {
-    window.location.href = "../assets/pages/landing-page.html";
+    window.location.href = "../pages/landing-page.html";
   }, 2000);
